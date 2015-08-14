@@ -33,6 +33,26 @@ body {
     overflow-y: auto;
 }
 
+.login-form {
+  width: 15vw;
+  border: 1px solid rgb(128,128,128);
+  border-radius: 6px;
+  margin: 20vh auto;
+}
+
+.login-form > * {
+  display: block;
+  margin: 12px auto;
+}
+
+.login-form > .error {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: monospace;
+  padding: 0 12px;
+}
+
 @media print
 {
   .page-host {

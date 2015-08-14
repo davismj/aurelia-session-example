@@ -1,0 +1,9 @@
+<template>
+  <form class="login-form" submit.delegate="login()">
+  	<img src="img/logo.png" />
+    <input type="text" placeholder="username" value.bind="username" />
+    <input type="password" placeholder="password" value.bind="password" />
+    <button type="submit">Login</button>
+    <span class="error">${error}</span>
+  </form>
+</template>
