@@ -1,13 +1,6 @@
 import { Aurelia, inject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-http-client';
-
-// The confic could be part of a larger config file. If this service
-// was abstracted to a plugin, it could be set up in the config.
-const config = {
-	baseUrl: 'http://www.mocky.io/v2/',
-	loginUrl: '560122ef9635789e120aa366',
-	tokenName: 'ah12h3'
-};
+import config from 'config';
 
 @inject(Aurelia, HttpClient)
 export default class AuthService {
@@ -42,7 +35,7 @@ export default class AuthService {
 
 	    		// .. and set root to app.
 	    		this.app.setRoot('app');
-	    	})
+	    	});
 	}
 
 	logout() {
