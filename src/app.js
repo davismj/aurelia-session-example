@@ -1,15 +1,20 @@
 import 'bootstrap';
 import 'bootstrap/css/bootstrap.css!';
+import { inject } from 'aurelia-framework';
+import AuthService from 'AuthService';
 
+@inject(AuthService)
 export class App {
-  configureRouter(config, router){
-    config.title = 'Aurelia';
-    config.map([
-      { route: ['','welcome'],  name: 'welcome',      moduleId: 'welcome',      nav: true, title:'Welcome' },
-      { route: 'users',         name: 'users',        moduleId: 'users',        nav: true, title:'Github Users' },
-      { route: 'child-router',  name: 'child-router', moduleId: 'child-router', nav: true, title:'Child Router' }
-    ]);
 
-    this.router = router;
+  constructor(AuthService) {
+  	this.auth = AuthService;
+  }
+}
+
+export class ToJSONValueConverter {
+  toView(obj) {
+    if (obj) {
+      return JSON.stringify(obj, null, 2)
+    }
   }
 }

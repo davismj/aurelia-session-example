@@ -1,25 +1,25 @@
-import { inject, Aurelia } from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
+import AuthService from 'AuthService';
 
-// First, we must inject the Aurelia object. This is the same Aurelia object
-// passed into our configure function on main.js.
-@inject(Aurelia)
+@inject(AuthService)
 export class Login {
-  
-  username = '';
-  password = '';
-  error = '';
 
-  constructor(aurelia) {
+  constructor(AuthService) {
 
-    // Once we have access to the Aurelia object, we can use it from
-    // within our login function to set the new root view model to 
-    // our main App on succesful login.
+    // Or, if we want to add additional logic to the function, 
+    // we can call it within another method on our view model.
     this.login = () => {
       if (this.username && this.password) {
-        aurelia.setRoot('app');
+        AuthService.login(this.username, this.password)
       } else {
         this.error = 'Please enter a username and password.';
       }
     }
+  }
+
+  activate() {
+    this.username = '';
+    this.password = '';
+    this.error = '';
   }
 }
